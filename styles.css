@@ -1,0 +1,209 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600&family=Great+Vibes&display=swap');
+
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: system-ui, -apple-system, sans-serif;
+}
+
+/* ===== BODY ===== */
+body {
+  min-height: 100vh;
+  background: linear-gradient(
+    -45deg,
+    #7a0f1c,
+    #b11226,
+    #0f5d38,
+    #167d4b
+  );
+  background-size: 400% 400%;
+  animation: bgMove 14s ease infinite;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+}
+
+/* ===== CONTENEDOR ===== */
+.container {
+  text-align: center;
+  padding: 26px 18px;
+  max-width: 400px;
+  width: 100%;
+  position: relative;
+  z-index: 2;
+  animation: fadeIn 2s ease;
+}
+
+/* ===== TITULO ===== */
+h1 {
+  font-family: 'Great Vibes', cursive;
+  font-size: 2.8rem;
+  margin-bottom: 10px;
+
+  background: linear-gradient(
+    90deg,
+    #ffd700,
+    #fff1c1,
+    #ffd700
+  );
+  background-size: 200% auto;
+
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+  animation: textGlow 3s linear infinite;
+  text-shadow: 0 0 18px rgba(255, 215, 120, 0.6);
+}
+
+/* ===== TEXTO ===== */
+#typing {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.3rem;
+  line-height: 1.7;
+  min-height: 100px;
+  margin-bottom: 28px;
+  text-align: center;
+
+  background: linear-gradient(
+    90deg,
+    #fff5e6,
+    #ffb3b3,
+    #ffd700,
+    #fff5e6
+  );
+  background-size: 300% auto;
+
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+  animation: textMove 6s ease-in-out infinite;
+}
+
+
+/* ===== ARBOL ===== */
+.tree {
+  margin: 0 auto 20px;
+  width: 0;
+  height: 0;
+  border-left: 70px solid transparent;
+  border-right: 70px solid transparent;
+  border-bottom: 120px solid #0f6b3f;
+  position: relative;
+  filter: drop-shadow(0 0 20px rgba(60,255,170,0.4));
+}
+
+.tree::before {
+  content: '';
+  position: absolute;
+  top: 40px;
+  left: -60px;
+  border-left: 60px solid transparent;
+  border-right: 60px solid transparent;
+  border-bottom: 100px solid #138f55;
+}
+
+.tree::after {
+  content: '';
+  position: absolute;
+  top: 78px;
+  left: -45px;
+  border-left: 45px solid transparent;
+  border-right: 45px solid transparent;
+  border-bottom: 80px solid #1bbf73;
+}
+
+/* ===== ESTRELLA ===== */
+.star {
+  position: absolute;
+  top: -36px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 2.4rem;
+  color: gold;
+  animation: sparkle 1.8s infinite alternate;
+  text-shadow: 0 0 25px gold;
+}
+
+/* ===== LUCES ===== */
+.light {
+  position: absolute;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background-color: red; /* se sobrescribe en JS */
+  opacity: 1;
+  box-shadow: 0 0 8px currentColor;
+  animation: blink 1.4s infinite alternate;
+}
+
+
+
+/* ===== FOOTER ===== */
+.footer {
+  margin-top: 14px;
+  font-size: 1rem;
+  color: #fff1dd;
+}
+
+/* ===== PARTICULAS ===== */
+.particle {
+  position: absolute;
+  top: -20px;
+  pointer-events: none;
+  z-index: 1;
+  animation-timing-function: linear;
+}
+
+.snow {
+  color: #ffffff;
+  opacity: 0.9;
+}
+
+.rain-heart {
+  color: #ff4d6d;
+  text-shadow: 0 0 6px rgba(255, 77, 109, 0.6);
+}
+
+/* ===== ANIMACIONES ===== */
+@keyframes bgMove {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes sparkle {
+  from { transform: translateX(-50%) scale(1); }
+  to { transform: translateX(-50%) scale(1.4); }
+}
+
+@keyframes blink {
+  from { opacity: 0.3; }
+  to { opacity: 1; }
+}
+
+@keyframes fall {
+  to {
+    transform: translate(var(--x-move), 110vh) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes textGlow {
+  0% { background-position: 0% center; }
+  100% { background-position: 200% center; }
+}
+
+@keyframes textMove {
+  0% { background-position: 0% center; }
+  50% { background-position: 150% center; }
+  100% { background-position: 0% center; }
+}
