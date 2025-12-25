@@ -25,6 +25,7 @@ body {
   justify-content: center;
   align-items: center;
   color: #fff;
+  overflow: hidden;
 }
 
 /* ===== CONTENEDOR ===== */
